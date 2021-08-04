@@ -1,5 +1,52 @@
 
 .Homepage{
     height: 100vh;
-    background-color: blue;
+    background-color: white;
+    margin-top: 40px;
+    padding:4vw;
+
+    .explore{
+        display: flex;
+        flex-direction: column;
+
+        h2{
+            margin-left: 47px;
+        }
+
+        .explore-places{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            align-items: center;
+    
+            .explore-card{
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 10px;
+                height:90px;
+                width:250px;
+                align-items: center;
+
+                div .explore-image{
+                    height:70px;
+                    width:70px;
+                    border-radius: 10px;
+
+                }
+                .explore-text{
+                    width: 140px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: flex-start;
+                    padding-left: 20px;
+
+                    .explore-city{
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
 }
