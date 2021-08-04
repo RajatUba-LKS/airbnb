@@ -1,4 +1,6 @@
 import React from 'react';
+//router
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './css/App.css';
 //components
 import Navbar from './components/Navbar';
@@ -9,8 +11,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      isLoaded: false,
       Hotels:""
     };
   }
@@ -21,7 +21,6 @@ class App extends React.Component {
       .then(
         (result) => {
           this.setState({
-            isLoaded: true,
             Hotels: result
           });
         }
@@ -33,7 +32,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar />
-        <Homepage />
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+          </Switch>
+        </Router>
         <Footer />
       </div>
     );
