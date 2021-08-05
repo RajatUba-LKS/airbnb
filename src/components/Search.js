@@ -32,16 +32,29 @@ class Search extends React.Component{
     const {showDatePicker,selectionRange}=this.state;
     return (
       <div className="searchBar">
-          <div className="search" onClick={this.showDateRange}>Search</div>
+          <div className="search" onClick={this.showDateRange}>
+            <span>Search</span>
+            <button className="searchButton">S</button>
+          </div>
           
           { showDatePicker &&
+          <div className="searchOption">
             <DateRangePicker
               ranges={[selectionRange]}
               onChange={this.handleSelect}
             />
+            <div className="guestStyle">
+              <label for="guest">Add Guest</label>
+              <input type="number" id="guest" placeholder="2" min="1" max="16"/>
+            </div>
+            <div className="guestStyle">
+              <label for="citySearch">Search City</label>
+              <input type="text" id="citySearch" placeholder="Seach City" />
+            </div>
+          </div>
           }
 
-          <button >S</button>
+          
       </div>
     );
   }

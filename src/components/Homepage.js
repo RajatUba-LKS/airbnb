@@ -1,12 +1,16 @@
 import React from 'react';
 import '../css/Homepage.css';
 import Explore from './Explore';
+import Live from './Live';
 
 class Homepage extends React.Component{
     constructor(){
         super();
         this.state={
-            explorePlace:[]
+            explorePlace:[], 
+            exploreLoading:true,
+            live:[],
+            liveLoading:true,
         }
     }
     componentDidMount(){
@@ -14,32 +18,35 @@ class Homepage extends React.Component{
         .then(res => res.json())
         .then(
             (result) => {
-            this.setState({
-                explorePlace: result
-            });
+                this.setState({
+                    explorePlace: result,
+                    exploreLoading:false
+                });
             }
         )
-        /*
-        fetch("https://6108f9f6d71b67001763969f.mockapi.io/api/v1/Hotel")
+        
+        fetch("https://6108f9f6d71b67001763969f.mockapi.io/api/v1/Live")
         .then(res => res.json())
         .then(
             (result) => {
-            this.setState({
-                Hotels: result
-            });
+                this.setState({
+                    live: result,
+                    liveLoading:false
+                });
             }
-        )*/
+        )
     }
     
     render(){
-        const {explorePlace}=this.state;
+        const {explorePlace,exploreLoading,live}=this.state;
         
         return (
             <div className="Homepage">
+                {/* Explore */}
                 <div className="explore">
-                    <h2>Explore Nearby</h2>
+                    <h2 className="homeHeading">Explore Nearby</h2>
                     <div className="explore-places">
-                    
+                    {exploreLoading && <h3>Places Loading...</h3>}
                     {explorePlace.map((place)=>{
                         return (
                             <Explore
@@ -50,6 +57,22 @@ class Homepage extends React.Component{
                     })}
                     </div>
                 </div>
+                
+                {/* Anywhere */}
+                <div className="live">
+                    <h2 className="homeHeading">Live Anywhere</h2>
+                    <div className="live-opt">
+                        {live.map((option)=>{
+                            return (
+                                <Live
+                                    option={option}
+                                    key={option.id}
+                                />
+                            )
+                        })}
+                    </div>
+                </div>
+
             </div>
         );
     }

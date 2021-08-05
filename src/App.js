@@ -6,6 +6,7 @@ import './css/App.css';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Footer from './components/Footer';
+import HotelSearch from './components/HotelSearch';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,11 +33,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar />
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-          </Switch>
-        </Router>
+        <div className="mainContent">
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route exact path="/search/:hotel_id" component={HotelSearch} />
+            </Switch>
+          </Router>
+        </div>
         <Footer />
       </div>
     );
