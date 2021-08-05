@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Homepage.css';
+import '../../css/Homepage.css';
 import Explore from './Explore';
 import Live from './Live';
 

@@ -3,33 +3,15 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './css/App.css';
 //components
-import Navbar from './components/Navbar';
-import Homepage from './components/Homepage';
-import Footer from './components/Footer';
-import HotelSearch from './components/HotelSearch';
+import Navbar from './components/Navbar/Navbar';
+import Homepage from './components/Homepage/Homepage';
+import Footer from './components/Footer/Footer';
+import HotelSearch from './components/Search/HotelSearch';
+import Hotel from './components/Hotel/Hotel';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      Hotels:[]
-    };
-  }
 
-  componentDidMount() {
-    fetch("https://6108f9f6d71b67001763969f.mockapi.io/api/v1/Hotel")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            Hotels: result
-          });
-        }
-      )
-  }
   render(){
-    const {Hotels}=this.state;
-    console.log('Hotels',Hotels);
     return (
       <div className="App">
         <Navbar />
@@ -37,7 +19,8 @@ class App extends React.Component {
           <Router>
             <Switch>
               <Route exact path="/" component={Homepage} />
-              <Route exact path="/search/:hotel_id" component={HotelSearch} />
+              <Route exact path="/search/:citySearch" component={HotelSearch} />
+              <Route exact path='/search/hotel/:id' component={Hotel} />
             </Switch>
           </Router>
         </div>
