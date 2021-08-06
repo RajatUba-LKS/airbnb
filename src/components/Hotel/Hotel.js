@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../css/hotel.css';
 
 class Hotel extends React.Component{
     constructor(props){
@@ -27,22 +28,30 @@ class Hotel extends React.Component{
     render(){
         const {hotel}=this.state;
         return (
-            <div>
-                <div>Property Info : {hotel.info}</div>
-                <div>
-                    <div>
-                        <span>Star {hotel.rating}</span>
-                        <span>{hotel.city}</span>
+            <div className="HotelOptions">
+                <div className="HotelPropertyInfo">Property Info : {hotel.info}</div>
+                <div className="HotelRCSS">
+                    <div className="HotelRC">
+                        <span className="HotelRatingReviews">Star {hotel.rating} <span className="HotelReviews"> &#40;{hotel.reviews} Reviews &#41; </span></span>
+                        <span className="HotelCity">{hotel.city}</span>
                     </div>
-                    <div>
+                    <div className="HotelSS">
                         <span>Share</span>
                         <span>Save</span>
                     </div>
                 </div>
-                <div>
-                    <img src={hotel.image} alt="hotelImage"></img>
+                <div className="HotelImage">
+                    <div className="HotelImageMainContainer">
+                        <img src={hotel.image} alt="hotelImage" className="HotelImageMain"/>
+                    </div>
+                    <div className="HotelAlternateImageContainer">
+                        <img src={hotel.image} alt="hotelImage" className="HotelAlternateImage"/>
+                        <img src={hotel.image} alt="hotelImage" className="HotelAlternateImage"/>
+                        <img src={hotel.image} alt="hotelImage" className="HotelAlternateImage"/>
+                        <img src={hotel.image} alt="hotelImage" className="HotelAlternateImage"/>
+                    </div>
                 </div>
-                <div>Facilities:{hotel.facility}</div>
+                <div className="HotelFacility">Facilities:{hotel.facility}</div>
             </div>
         );
     }

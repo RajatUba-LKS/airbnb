@@ -6,17 +6,20 @@ import '../../css/Navbar.css';
 import Search from './Search'
 import Logo from './Logo';
 
-function Navbar(){
+function Navbar(props){
+    
     return (
         <div className="Navbar">
             <Router>
             <Link to="/">
-                <Logo />
+                <Logo render={props.render}/>
             </Link>
             </Router>
-            <Search />
+            <Search render={props.render} />
             <div className="nav-options">
-                Options
+                <span>Host your website</span>
+                <span>W</span>
+                <span>U</span>
             </div>
         </div>
     );

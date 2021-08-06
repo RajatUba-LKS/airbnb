@@ -6,13 +6,10 @@ import {DateRangePicker} from 'react-date-range';
 import {addDays} from 'date-fns';
 //date picker
 class Search extends React.Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state={
       showDatePicker:false,
-      startDate:'',
-      endDate:'',
-      guestNo:'',
       citySearch:''
     }
   }
@@ -45,9 +42,12 @@ class Search extends React.Component{
     })
   }
 
+  handleRender=()=>{
+    return !this.props.render;
+  }
+
 
   render(){
-    
     const {showDatePicker,citySearch}=this.state;
     const selectionRange = {
       startDate: new Date(),
@@ -56,9 +56,7 @@ class Search extends React.Component{
     }
     return (
       <div className="searchBar">
-          <div className="search" onClick={this.showDateRange}>
-            <span>Search</span>
-          </div>
+          <div className="search" onClick={this.showDateRange}>{!showDatePicker && 'Start Your Search'}</div>
           
           { showDatePicker &&
           <div className="searchOption">
@@ -78,7 +76,7 @@ class Search extends React.Component{
           }
       <Router>
           <Link to={`/search/${citySearch}`}>
-            <button className="searchButton">S</button>
+            <button className="searchButton" onClick={this.handleRender()}>S</button>
             </Link>
             </Router>
       </div>

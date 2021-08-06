@@ -1,0 +1,96 @@
+.hotelSearch{
+    
+    .cityName{
+        font-size: 28px;
+        font-weight: 700;
+    }
+    .sortButton{
+        .flexMixins(row,initial,space-evenly);
+        .hwMixins(50px,500px);
+        margin-bottom: 20px;
+        margin-top: 20px;
+        
+        button{
+            height: 35px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 20px;
+            background-color: white;
+            border:1px solid lightgrey ;
+
+            &:hover{
+                background-color: lightyellow;
+            }
+        }
+        .sortSelect{
+            background-color: lightgreen;
+            &:hover{
+                background-color: lightgreen;
+            }
+        }
+    }
+    .hotelOptions{
+        .flexMixins(column,flex-start);
+        border-top: 1px solid grey;
+        height: auto;
+
+        .searchHotelCard{
+            .flexMixins(row,center);
+            height: 240px;
+            border-bottom: 1px solid grey;
+    
+            .hotelImageContainer{
+                display: inline-block;
+                .hotelImage{
+                    .hwMixins(200px,300px);
+                    border-radius: 10px;
+                }
+            }
+            .hotelInfoContainer{
+                .flexMixins(column,initial,space-between);
+                .hwMixins(200px,450px);
+                margin-left: 15px;
+
+                .infoHeart{
+                    .flexMixins(row,initial,space-between);
+                    width: inherit;
+
+                    .hotelInfo{
+                        .flexMixins(column);
+                        
+                        .hotelInfo1{
+                            color: grey;
+                        }
+                        .hotelInfo2{
+                            font-size: 1.2rem;
+                        }
+                    }
+                } 
+                
+                .hotelFacility{
+                    display: inline-block;
+                    color: grey;
+                }
+                .hotelRSP{
+                    .flexMixins(row,baseline,space-between);
+                    width: inherit;
+                    
+                    .ratingReviews{
+                        font-size: 14px;
+                        .hotelReviews{
+                            color: grey;
+                        }
+                    }
+                    
+                    .hotelPrice{
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                    }
+                    .hotelPriceText{
+                        font-size: 1.2rem;
+                    }                   
+                }
+            }
+        }
+    }
+}

@@ -1,7 +1,22 @@
+.flexMixins(@dir,@alig:initial,@just:initial){
+    display:flex;
+    flex-direction: @dir;
+    align-items: @alig;
+    justify-content: @just;
+}
+.hwMixins(@h,@w){
+    height: @h;
+    width: @w;
+}
 .mainContent{
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     background-color: white;
     margin-top: 40px;
     padding:4vw;
     margin-left: 50px;
+
+    .Loading{
+        margin-left: 38vw;
+    }
 }

@@ -1,0 +1,63 @@
+
+.HotelOptions{
+    width: 100%;
+    margin-right: 60px;
+    
+    .HotelPropertyInfo{
+        font-size: 28px;
+        font-weight: 600;
+    }
+    .HotelRCSS{
+        .flexMixins(row,initial,space-between);
+        margin-top: 10px;
+        margin-bottom: 20px;
+        width: inherit;
+
+        .HotelRC{
+            .HotelRatingReviews{
+                font-weight: 500;
+                margin-right: 20px;
+                .HotelReviews{
+                    color: gray;
+                    text-decoration: underline;
+                }
+            }
+            .HotelCity{
+                color: gray;
+                font-weight: 500;
+                text-decoration: underline;
+            }
+        }
+        .HotelSS{
+            .flexMixins(row,initial,space-between);
+            width: 90px;
+            text-decoration: underline;
+            color: black;
+            font-weight: 500;
+        }
+    }
+    .HotelImage{
+        .flexMixins(row,initial,space-between);
+
+        .HotelImageMainContainer{
+            .HotelImageMain{
+                border-radius: 10px;
+                .hwMixins(400px,700px);
+            }
+        }
+        .HotelAlternateImageContainer{
+            .flexMixins(row,initial,space-between);
+            .hwMixins(400px,480px);
+            flex-wrap: wrap;
+            .HotelAlternateImage{
+                .hwMixins(198px,236px);
+                border-radius: 7px;
+            }
+        }
+    }
+    .HotelFacility{
+        margin-top: 40px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+}

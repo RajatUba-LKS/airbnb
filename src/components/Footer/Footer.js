@@ -2,7 +2,7 @@ import React from 'react';
 import '../../css/Footer.css';
 function Footer(){
     return (
-        <div className="footer"> Footer </div>
+        <div className="footer"> @Airbnb Clone by Rajat </div>
     );
 }
 

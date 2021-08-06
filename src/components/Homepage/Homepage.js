@@ -4,8 +4,8 @@ import Explore from './Explore';
 import Live from './Live';
 
 class Homepage extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             explorePlace:[], 
             exploreLoading:true,
@@ -38,20 +38,21 @@ class Homepage extends React.Component{
     }
     
     render(){
-        const {explorePlace,exploreLoading,live}=this.state;
-        
+        const {explorePlace,exploreLoading,live,liveLoading}=this.state;
+        const {render}=this.props;
         return (
             <div className="Homepage">
                 {/* Explore */}
                 <div className="explore">
                     <h2 className="homeHeading">Explore Nearby</h2>
                     <div className="explore-places">
-                    {exploreLoading && <h3>Places Loading...</h3>}
+                    {exploreLoading && <h3 className="Loading">Places Loading...</h3>}
                     {explorePlace.map((place)=>{
                         return (
                             <Explore
                                 place={place}
                                 key ={place.id}
+                                render={render}
                             />
                         );
                     })}
@@ -60,8 +61,9 @@ class Homepage extends React.Component{
                 
                 {/* Anywhere */}
                 <div className="live">
-                    <h2 className="homeHeading">Live Anywhere</h2>
+                    <h2 className="homeHeading" >Live Anywhere</h2>
                     <div className="live-opt">
+                    {liveLoading && <h3>Places Loading...</h3>}
                         {live.map((option)=>{
                             return (
                                 <Live
