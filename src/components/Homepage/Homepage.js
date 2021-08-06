@@ -2,6 +2,7 @@ import React from 'react';
 import '../../css/Homepage.css';
 import Explore from './Explore';
 import Live from './Live';
+import { CircularProgress } from '@material-ui/core';
 
 class Homepage extends React.Component{
     constructor(props){
@@ -46,7 +47,7 @@ class Homepage extends React.Component{
                 <div className="explore">
                     <h2 className="homeHeading">Explore Nearby</h2>
                     <div className="explore-places">
-                    {exploreLoading && <h3 className="Loading">Places Loading...</h3>}
+                    {exploreLoading && <CircularProgress className="Loading"/>}
                     {explorePlace.map((place)=>{
                         return (
                             <Explore
@@ -63,7 +64,7 @@ class Homepage extends React.Component{
                 <div className="live">
                     <h2 className="homeHeading" >Live Anywhere</h2>
                     <div className="live-opt">
-                    {liveLoading && <h3>Places Loading...</h3>}
+                    {liveLoading && <CircularProgress />}
                         {live.map((option)=>{
                             return (
                                 <Live

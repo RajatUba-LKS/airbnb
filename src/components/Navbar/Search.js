@@ -4,6 +4,7 @@ import 'react-date-range/dist/theme/default.css';
 import {BrowserRouter as Router,Link} from 'react-router-dom';
 import {DateRangePicker} from 'react-date-range';
 import {addDays} from 'date-fns';
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 //date picker
 class Search extends React.Component{
   constructor(props){
@@ -76,7 +77,7 @@ class Search extends React.Component{
           }
       <Router>
           <Link to={`/search/${citySearch}`}>
-            <button className="searchButton" onClick={this.handleRender()}>S</button>
+            <button className="searchButton" onClick={this.handleRender()}><SearchOutlinedIcon/></button>
             </Link>
             </Router>
       </div>
